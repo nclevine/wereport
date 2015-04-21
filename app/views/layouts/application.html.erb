@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <% if false #user_signed_in? %>
+    <% if user_signed_in? %>
       <h3><%= link_to 'Signout', destroy_user_session_path, :method => :delete %></h3>
     <% else %> 
       <h3><%= link_to 'Signin', new_user_session_path %></h3>
