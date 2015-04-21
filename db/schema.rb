@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421134819) do
+ActiveRecord::Schema.define(version: 20150421150758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,9 +27,11 @@ ActiveRecord::Schema.define(version: 20150421134819) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "story_id"
+    t.integer  "user_id"
   end
 
   add_index "comments", ["story_id"], name: "index_comments_on_story_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.string   "name",            null: false
@@ -52,12 +54,14 @@ ActiveRecord::Schema.define(version: 20150421134819) do
     t.text     "body"
     t.integer  "location_id"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "neighborhood_id"
   end
 
   add_index "stories", ["category_id"], name: "index_stories_on_category_id", using: :btree
   add_index "stories", ["location_id"], name: "index_stories_on_location_id", using: :btree
+  add_index "stories", ["neighborhood_id"], name: "index_stories_on_neighborhood_id", using: :btree
   add_index "stories", ["user_id"], name: "index_stories_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -79,8 +83,10 @@ ActiveRecord::Schema.define(version: 20150421134819) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "comments", "stories"
+  add_foreign_key "comments", "users"
   add_foreign_key "locations", "neighborhoods"
   add_foreign_key "stories", "categories"
   add_foreign_key "stories", "locations"
+  add_foreign_key "stories", "neighborhoods"
   add_foreign_key "stories", "users"
 end

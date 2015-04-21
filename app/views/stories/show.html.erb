@@ -1,0 +1,22 @@
+<h2><%= @story.title %></h2>
+<p><%= @story.created_at %></p>
+<p><%= @story.category.name %></p>
+<p><%= @story.neighborhood.name %>: <%= @story.location.name %></p>
+<p><%= @story.body %></p>
+<% if current_user == @story.user %>
+  <%= link_to "Edit story", edit_story_path(@story) %>
+  <%= link_to "Delete story", story_path(@story), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
+<% end %>
+
+<div class='comments'>
+ <% @story.comments.each do |comment| %>
+   <p><%= comment.body %></p>
+   <p><%= comment.user.email.split('@').first %></p>
+ <% end %>
+</div>
+
+<%= form_tag "/stories/#{@story.id}/comments" do %>
+  <%= label_tag :body %>
+  <%= text_area_tag :body %>
+  <%= submit_tag "Add comment" %>
+<% end %>
