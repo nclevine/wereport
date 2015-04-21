@@ -1,0 +1,5 @@
+<h2><%= @neighborhood.name %></h2>
+
+<% @neighborhood.locations.each do |location| %>
+  <%= link_to location.name, location %>
+<% end %>

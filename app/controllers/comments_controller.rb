@@ -9,8 +9,10 @@ class CommentsController < ApplicationController
   def create
     @story = Story.find(params[:story_id])
     @comment = current_user.comments.new(body: params[:body], story_id: @story.id)
-    @comment.save
-    redirect_to @story
+    if !@comment.save
+      flash[:bad_comment] = "You didn't write anything!"
+    end
+      redirect_to @story
   end
 
   def edit

@@ -19,6 +19,8 @@
   <% end %>
 </div>
 
+<p><%= flash[:bad_comment] %></p>
+
 <%= form_tag "/stories/#{@story.id}/comments" do %>
   <%= label_tag :body %>
   <%= text_area_tag :body %>
