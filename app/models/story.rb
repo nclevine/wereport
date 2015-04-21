@@ -7,4 +7,6 @@ class Story < ActiveRecord::Base
   belongs_to :category
   has_many :comments, dependent: :destroy
   has_many :importance_markers
+
+  acts_as_punchable
 end

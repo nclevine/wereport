@@ -68,6 +68,7 @@ GEM
     httparty (0.13.3)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
+    httpclient (2.6.0.1)
     i18n (0.7.0)
     jbuilder (2.2.13)
       activesupport (>= 3.0.0, < 5)
@@ -90,6 +91,9 @@ GEM
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     pg (0.18.1)
+    punching_bag (0.4.0)
+      railties (>= 3.2, < 5)
+      voight_kampff (~> 0.2)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -153,6 +157,9 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    voight_kampff (0.2.2)
+      httpclient (~> 2.2)
+      nokogiri (~> 1.6)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.1.2)
@@ -173,6 +180,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pg
+  punching_bag
   rails (= 4.2.1)
   rails_12factor
   sass-rails (~> 5.0)
