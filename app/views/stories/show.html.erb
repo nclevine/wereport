@@ -9,10 +9,14 @@
 <% end %>
 
 <div class='comments'>
- <% @story.comments.each do |comment| %>
-   <p><%= comment.body %></p>
-   <p><%= comment.user.email.split('@').first %></p>
- <% end %>
+  <% @story.comments.each do |comment| %>
+    <p><%= comment.body %></p>
+    <p><%= comment.user.email.split('@').first %></p>
+    <% if current_user == comment.user %>
+      <%= link_to "Edit", edit_comment_path(comment) %>
+      <%= link_to "Delete", comment_path(comment), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
+    <% end %>
+  <% end %>
 </div>
 
 <%= form_tag "/stories/#{@story.id}/comments" do %>

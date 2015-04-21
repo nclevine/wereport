@@ -6,6 +6,10 @@
   <%= f.select :category_id, Category.all.collect{ |c| [c.name, c.id] }, {prompt: 'Select Category'} %>
   <%= f.select :neighborhood_id, Neighborhood.all.collect { |n| [n.name, n.id] }, {prompt: 'Select Neighborhood'} %>
   <%= f.label :location %>
-  <%= f.text_field :location, value: @story.location.name %>
+  <% if !@story.location %>
+    <%= f.text_field :location %>
+  <% else %>
+    <%= f.text_field :location, value: @story.location.name %>
+  <% end %>
   <%= f.submit %>
 <% end %>

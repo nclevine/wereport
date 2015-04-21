@@ -27,7 +27,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    
+    @comment = Comment.find(params[:id])
+    @story = @comment.story
+    @comment.destroy
+    redirect_to @story
   end
 
   private
