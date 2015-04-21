@@ -2,14 +2,14 @@
 
 one:
   title: MyString
-  body: MyText
   user_id: 
-  category_id: 
+  body: MyText
   location_id: 
+  category_id: 
 
 two:
   title: MyString
-  body: MyText
   user_id: 
-  category_id: 
+  body: MyText
   location_id: 
+  category_id: 

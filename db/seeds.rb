@@ -1,130 +1,148 @@
-Adams Morgan
-Columbia Heights
-Howard University
-Kalorama
-LeDroit Park
-Mount Pleasant
-Park View
-Pleasant Plains
-Shaw 
-Burleith
-Chinatown
-Downtown
-Dupont Circle
-Federal Triangle
-Foggy Bottom
-Georgetown
-Logan Circle
-Mount Vernon Square 
-Penn Quarter
-Sheridan Kalorama
-Southwest Federal Center
-West End
-American University Park
-Berkley
-Cathedral Heights
-Chevy Chase
-Cleveland Park
-Colony Hill
-Forest Hills
-Foxhall
-Friendship Heights
-Glover Park
-Kent
-Massachusetts Heights
-McLean Gardens
-North Cleveland Park
-Observatory Circle
-Potomac Heights
-Spring Valley
-Tenleytown
-The Palisades
-Wakefield
-Wesley Heights
-Woodland Normanstone
-Woodley Park 
-Barnaby Woods
-Brightwood
-Brightwood Park
-Colonial Village
-Crestwood
-Fort Totten
-Hawthorne
-Manor Park
-Petworth
-Queens Chapel
-Riggs Park
-Shepherd Park
-Sixteenth Street Heights
-Takoma
-Arboretum
-Bloomingdale
-Brentwood
-Brookland
-Carver Langston
-Eckington
-Edgewood
-Fort Lincoln
-Fort Totten
-Gateway
-Ivy City
-Langdon
-Michigan Park
-North Michigan Park
-Pleasant Hill
-Stronghold
-Trinidad
-Truxton Circle
-Woodridge
-Barney Circle
-Capitol Hill
-Judiciary Square
-Kingman Park
-Mount Vernon Triangle
-Navy Yard
-Near Northeast
-NoMa
-Southwest Waterfront
-Sursum Corda
-Swampoodle
-Benning Heights
-Benning Ridge
-Benning
-Burrville
-Capitol View
-Central Northeast
-Civic Betterment
-Deanwood
-Dupont Park
-Eastland Gardens
-Fairfax Village
-Fairlawn
-Fort Davis
-Fort Dupont
-Good Hope
-Greenway
-Hillbrook
-Hillcrest
-Kenilworth
-Kingman Park
-Lincoln Heights
-Marshall Heights
-Mayfair
-Naylor Gardens
-Penn Branch
-Randle Highlands
-River Terrace
-Skyland
-Twining
-Anacostia
-Barry Farm
-Bellevue
-Buena Vista
-Congress Heights
-Douglass
-Fairlawn
-Garfield Heights
-Knox Hill
-Shipley Terrace
-Washington Highlands
-Woodland
+Neighborhood.destroy_all
+Category.destroy_all
+
+Neighborhood.create([
+{name: 'Adams Morgan' },
+{name: 'Columbia Heights' },
+{name: 'Howard University' },
+{name: 'Kalorama' },
+{name: 'LeDroit Park' },
+{name: 'Mount Pleasant' },
+{name: 'Park View' },
+{name: 'Pleasant Plains' },
+{name: 'Shaw ' },
+{name: 'Burleith' },
+{name: 'Chinatown' },
+{name: 'Downtown' },
+{name: 'Dupont Circle' },
+{name: 'Federal Triangle' },
+{name: 'Foggy Bottom' },
+{name: 'Georgetown' },
+{name: 'Logan Circle' },
+{name: 'Mount Vernon Square ' },
+{name: 'Penn Quarter' },
+{name: 'Sheridan Kalorama' },
+{name: 'Southwest Federal Center' },
+{name: 'West End' },
+{name: 'American University Park' },
+{name: 'Berkley' },
+{name: 'Cathedral Heights' },
+{name: 'Chevy Chase' },
+{name: 'Cleveland Park' },
+{name: 'Colony Hill' },
+{name: 'Forest Hills' },
+{name: 'Foxhall' },
+{name: 'Friendship Heights' },
+{name: 'Glover Park' },
+{name: 'Kent' },
+{name: 'Massachusetts Heights' },
+{name: 'McLean Gardens' },
+{name: 'North Cleveland Park' },
+{name: 'Observatory Circle' },
+{name: 'Potomac Heights' },
+{name: 'Spring Valley' },
+{name: 'Tenleytown' },
+{name: 'The Palisades' },
+{name: 'Wakefield' },
+{name: 'Wesley Heights' },
+{name: 'Woodland Normanstone' },
+{name: 'Woodley Park ' },
+{name: 'Barnaby Woods' },
+{name: 'Brightwood' },
+{name: 'Brightwood Park' },
+{name: 'Colonial Village' },
+{name: 'Crestwood' },
+{name: 'Fort Totten' },
+{name: 'Hawthorne' },
+{name: 'Manor Park' },
+{name: 'Petworth' },
+{name: 'Queens Chapel' },
+{name: 'Riggs Park' },
+{name: 'Shepherd Park' },
+{name: 'Sixteenth Street Heights' },
+{name: 'Takoma' },
+{name: 'Arboretum' },
+{name: 'Bloomingdale' },
+{name: 'Brentwood' },
+{name: 'Brookland' },
+{name: 'Carver Langston' },
+{name: 'Eckington' },
+{name: 'Edgewood' },
+{name: 'Fort Lincoln' },
+{name: 'Fort Totten' },
+{name: 'Gateway' },
+{name: 'Ivy City' },
+{name: 'Langdon' },
+{name: 'Michigan Park' },
+{name: 'North Michigan Park' },
+{name: 'Pleasant Hill' },
+{name: 'Stronghold' },
+{name: 'Trinidad' },
+{name: 'Truxton Circle' },
+{name: 'Woodridge' },
+{name: 'Barney Circle' },
+{name: 'Capitol Hill' },
+{name: 'Judiciary Square' },
+{name: 'Kingman Park' },
+{name: 'Mount Vernon Triangle' },
+{name: 'Navy Yard' },
+{name: 'Near Northeast' },
+{name: 'NoMa' },
+{name: 'Southwest Waterfront' },
+{name: 'Sursum Corda' },
+{name: 'Swampoodle' },
+{name: 'Benning Heights' },
+{name: 'Benning Ridge' },
+{name: 'Benning' },
+{name: 'Burrville' },
+{name: 'Capitol View' },
+{name: 'Central Northeast' },
+{name: 'Civic Betterment' },
+{name: 'Deanwood' },
+{name: 'Dupont Park' },
+{name: 'Eastland Gardens' },
+{name: 'Fairfax Village' },
+{name: 'Fairlawn' },
+{name: 'Fort Davis' },
+{name: 'Fort Dupont' },
+{name: 'Good Hope' },
+{name: 'Greenway' },
+{name: 'Hillbrook' },
+{name: 'Hillcrest' },
+{name: 'Kenilworth' },
+{name: 'Kingman Park' },
+{name: 'Lincoln Heights' },
+{name: 'Marshall Heights' },
+{name: 'Mayfair' },
+{name: 'Naylor Gardens' },
+{name: 'Penn Branch' },
+{name: 'Randle Highlands' },
+{name: 'River Terrace' },
+{name: 'Skyland' },
+{name: 'Twining' },
+{name: 'Anacostia' },
+{name: 'Barry Farm' },
+{name: 'Bellevue' },
+{name: 'Buena Vista' },
+{name: 'Congress Heights' },
+{name: 'Douglass' },
+{name: 'Fairlawn' },
+{name: 'Garfield Heights' },
+{name: 'Knox Hill' },
+{name: 'Shipley Terrace' },
+{name: 'Washington Highlands' },
+{name: 'Woodland' }
+])
+
+Category.create([
+  {name: 'Sports' },
+  {name: 'Crime' },
+  {name: 'Weather' },
+  {name: 'Food' },
+  {name: 'Tech' },
+  {name: 'Business' },
+  {name: 'Education' },
+  {name: 'Politics' },
+  {name: 'Entertainment' },
+  {name: 'Health' }
+])
