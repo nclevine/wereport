@@ -1,6 +1,6 @@
 <h2><%= @story.title %></h2>
 <p><%= @story.created_at %></p>
-<p><%= @story.category.name %></p>
+<p><%= link_to @story.category.name, @story.category %></p>
 <p><%= @story.neighborhood.name %>: <%= @story.location.name %></p>
 <p><%= @story.body %></p>
 <% if current_user == @story.user %>
