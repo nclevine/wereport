@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421150758) do
+ActiveRecord::Schema.define(version: 20150421191105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 20150421150758) do
 
   add_index "comments", ["story_id"], name: "index_comments_on_story_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "importance_markers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "story_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean  "important"
+  end
+
+  add_index "importance_markers", ["story_id"], name: "index_importance_markers_on_story_id", using: :btree
+  add_index "importance_markers", ["user_id"], name: "index_importance_markers_on_user_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.string   "name",            null: false
@@ -54,9 +65,10 @@ ActiveRecord::Schema.define(version: 20150421150758) do
     t.text     "body"
     t.integer  "location_id"
     t.integer  "category_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "neighborhood_id"
+    t.integer  "importance",      default: 0
   end
 
   add_index "stories", ["category_id"], name: "index_stories_on_category_id", using: :btree
@@ -84,6 +96,8 @@ ActiveRecord::Schema.define(version: 20150421150758) do
 
   add_foreign_key "comments", "stories"
   add_foreign_key "comments", "users"
+  add_foreign_key "importance_markers", "stories"
+  add_foreign_key "importance_markers", "users"
   add_foreign_key "locations", "neighborhoods"
   add_foreign_key "stories", "categories"
   add_foreign_key "stories", "locations"

@@ -46,6 +46,32 @@ class StoriesController < ApplicationController
     redirect_to root_path
   end
 
+  def mark_important
+    @story = Story.find(params[:story_id])
+    if !current_user.importance_markers.find_by(story_id: @story.id)
+      @importance_marker = ImportanceMarker.create(user_id: current_user.id, story_id: @story.id, important: true)  
+    else
+      @importance_marker = current_user.importance_markers.find_by(story_id: @story.id)
+      @importance_marker.update(important: true)
+    end
+    @story.importance += 1
+    @story.save
+    redirect_to @story
+  end
+
+  def mark_unimportant
+    @story = Story.find(params[:story_id])
+    if !current_user.importance_markers.find_by(story_id: @story.id)
+      @importance_marker = ImportanceMarker.create(user_id: current_user.id, story_id: @story.id, important: false)  
+    else
+      @importance_marker = current_user.importance_markers.find_by(story_id: @story.id)
+      @importance_marker.update(important: false)
+    end
+    @story.importance -= 1
+    @story.save
+    redirect_to @story
+  end
+
   private
   def story_params
     params.require(:story).permit(:title, :body, :category_id, :user_id, :neighborhood_id, :location_id)

@@ -13,4 +13,7 @@ Rails.application.routes.draw do
 
   get '/home', to: 'categories#home'
   root 'categories#home'
+
+  post '/stories/:story_id/mark_important', to: 'stories#mark_important'
+  post '/stories/:story_id/mark_unimportant', to: 'stories#mark_unimportant'
 end

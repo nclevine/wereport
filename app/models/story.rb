@@ -6,4 +6,5 @@ class Story < ActiveRecord::Base
   belongs_to :location
   belongs_to :category
   has_many :comments, dependent: :destroy
+  has_many :importance_markers
 end

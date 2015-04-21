@@ -3,6 +3,16 @@
 <p><%= link_to @story.category.name, @story.category %></p>
 <p><%= @story.neighborhood.name %>: <%= @story.location.name %></p>
 <p><%= @story.body %></p>
+
+<% if !current_user.importance_markers.find_by(story_id: @story.id) %>
+  <%= link_to 'Important!', "/stories/#{@story.id}/mark_important", method: :post %>
+  <%= link_to 'Unimportant!', "/stories/#{@story.id}/mark_unimportant", method: :post %>
+<% elsif current_user.importance_markers.find_by(story_id: @story.id).important? %>
+  <%= link_to 'Unimportant!', "/stories/#{@story.id}/mark_unimportant", method: :post %>
+<% else %>
+  <%= link_to 'Important!', "/stories/#{@story.id}/mark_important", method: :post %>
+<% end %>
+
 <% if current_user == @story.user %>
   <%= link_to "Edit story", edit_story_path(@story) %>
   <%= link_to "Delete story", story_path(@story), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
