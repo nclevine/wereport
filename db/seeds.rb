@@ -1,3 +1,8 @@
+Comment.destroy_all
+Story.destroy_all
+User.destroy_all
+ImportanceMarker.destroy_all
+Location.destroy_all
 Neighborhood.destroy_all
 Category.destroy_all
 
