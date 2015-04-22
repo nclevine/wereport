@@ -9,4 +9,12 @@ class Story < ActiveRecord::Base
   has_many :importance_markers
 
   acts_as_punchable
+
+  def preview
+    preview = self.body.split[0..5].join(' ') + '...'
+  end
+
+  def username
+    username = self.user.email.split('@').first
+  end
 end

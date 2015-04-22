@@ -1,5 +1,11 @@
-<h2>Neighborhoods</h2>
-
-<% @neighborhoods.each do |neighborhood| %>
-  <%= link_to neighborhood.name, neighborhood %>
-<% end %>
+<div class="neighborhood-index">
+  <h2>Neighborhoods</h2>
+  <% ('A'..'Z').each do |letter| %>
+    <h3><%= letter %>...</h3>
+    <% @neighborhoods.each do |neighborhood| %>
+      <% if neighborhood.name[0] == letter %>
+        <p><%= link_to neighborhood.name, neighborhood %></p> 
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

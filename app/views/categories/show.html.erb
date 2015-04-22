@@ -1,5 +1,14 @@
-<h2><%= @category.name %></h2>
+<div class='category-show'>
 
-<% @category.stories.each do |story| %>
-  <%= link_to story.title, story %>
-<% end %>
+  <h2><%= @category.name %></h2>
+  <div class='category-stories'>
+    <% @category.stories.each do |story| %>
+      <div class='story'>
+        <h3><%= link_to story.title, story %></h3>
+        <p><%= story.preview %></p>
+        <p><%= story.username %>, <%= story.created_at.strftime("%l:%M %P, %m/%d/%y") %></p>
+      </div>
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,70 @@
+<div class='home'>
+
+  <div class='trending-stories'>
+    <h2>Trending Stories</h2>
+    <% @trending_stories.each do |story| %>
+      <div class='story'>
+        <h3><%= link_to story.title, story %></h3>
+        <div class='info-links'>
+          <p>(<%= link_to story.category.name, story.category %>)</p>
+          <p>(<%= link_to story.neighborhood.name, story.neighborhood %>)</p>
+        </div>
+        <p><%= story.preview %></p>
+        <p class='timestamp'><%= story.created_at.strftime("%l:%M %P") %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class='busy-neighborhoods'>
+    <h2><%= link_to "Neighborhoods", neighborhoods_path %></h2>
+    <% @busy_neighborhoods.each do |neighborhood| %>
+      <div class='neighborhood'>
+        <h3><%= link_to neighborhood.name, neighborhood %></h3>
+        <p>
+          <%= neighborhood.stories.count %>
+          <% if neighborhood.stories.count == 1 %>
+            story
+          <% else %>
+            stories
+          <% end %>
+        </p>
+      </div>
+    <% end %>
+    <h3 class='view-all'><%= link_to "View All", neighborhoods_path %></h3>
+  </div>
+
+  <div class='clear-right'></div>
+
+  <div class='most-important'>
+    <h2>Important Stories</h2>
+    <% @important_stories.each do |story| %>
+      <div class='story'>
+        <h3><%= link_to story.title, story %></h3>
+        <div class='info-links'>
+          <p>(<%= link_to story.category.name, story.category %>)</p>
+          <p>(<%= link_to story.neighborhood.name, story.neighborhood %>)</p>
+        </div>
+        <p><%= story.preview %></p>
+        <p class='timestamp'><%= story.created_at.strftime("%l:%M %P, %m/%d/%y") %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class='most-viewed'>
+    <h2>Most Viewed</h2>
+    <% @most_viewed_stories.each do |story| %>
+      <div class='story'>
+        <h3><%= link_to story.title, story %></h3>
+        <div class='info-links'>
+          <p>(<%= link_to story.category.name, story.category %>)</p>
+          <p>(<%= link_to story.neighborhood.name, story.neighborhood %>)</p>
+        </div>
+        <p><%= story.preview %></p>
+        <p class='timestamp'><%= story.created_at.strftime("%l:%M %P, %m/%d/%y") %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class='clear'></div>
+
+</div>

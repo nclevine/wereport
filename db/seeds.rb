@@ -140,15 +140,16 @@ Neighborhood.create([
 ])
 
 Category.create([
-  {name: 'Sports' },
+  {name: 'Public Interest'},
+  {name: 'Politics' },
+  {name: 'Business' },
   {name: 'Crime' },
+  {name: 'Transportation' },
+  {name: 'Entertainment' },
+  {name: 'Sports' },
   {name: 'Weather' },
+  {name: 'Health' },
   {name: 'Food' },
   {name: 'Tech' },
-  {name: 'Business' },
-  {name: 'Education' },
-  {name: 'Politics' },
-  {name: 'Entertainment' },
-  {name: 'Health' },
-  {name: 'Transportation' }
+  {name: 'Education' }
 ])

@@ -1,6 +1,6 @@
 class NeighborhoodsController < ApplicationController
   def index
-    @neighborhoods = Neighborhood.all.select {|neighborhood| neighborhood.stories.any?}
+    @neighborhoods = Neighborhood.all.sort_by{|neighborhood| neighborhood.name}
   end
 
   def show

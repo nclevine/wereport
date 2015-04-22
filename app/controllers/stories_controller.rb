@@ -17,6 +17,7 @@ class StoriesController < ApplicationController
   def create
     @location = Location.find_or_create_by(neighborhood_id: params[:story][:neighborhood_id], name: params[:story][:location])
     params[:story][:location_id] = @location.id
+    params[:story][:title] = params[:story][:title].titleize
     @story = current_user.stories.new(story_params)
     if @story.save
       redirect_to @story 
@@ -33,6 +34,7 @@ class StoriesController < ApplicationController
     @location = Location.find_or_create_by(neighborhood_id: params[:story][:neighborhood_id], name: params[:story][:location])
     params[:story][:location_id] = @location.id
     @story = Story.find(params[:id])
+    params[:story][:title] = params[:story][:title].titleize
     if @story.update(story_params)
       redirect_to @story
     else
