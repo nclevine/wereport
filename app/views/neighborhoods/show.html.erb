@@ -1,5 +1,12 @@
-<h2><%= @neighborhood.name %></h2>
+<div class='neighborhood-show'>
+  <h2><%= @neighborhood.name %></h2>
 
-<% @neighborhood.locations.each do |location| %>
-  <%= link_to location.name, location %>
-<% end %>
+  <div class='locations'>
+    <h3>Posted Locations</h3>
+    <% @neighborhood.locations.each do |location| %>
+      <p><%= link_to location.name, location %></p>
+    <% end %>
+  </div>
+
+  <p class='return'><%= link_to "All Neighborhoods", neighborhoods_path %></p>
+</div>
