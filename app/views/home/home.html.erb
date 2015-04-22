@@ -1,5 +1,7 @@
 <div class='home'>
 
+  <div class='today'><h2>Today is <%= Time.now.strftime("%A, %B %e, %Y") %></h2></div>
+
   <div class='trending-stories'>
     <h2>Trending Stories</h2>
     <% @trending_stories.each do |story| %>
@@ -50,7 +52,7 @@
     <% end %>
   </div>
 
-  <div class='clear-left'></div>
+  <div class='clear-right'></div>
 
   <div class='most-viewed'>
     <h2>Most Viewed</h2>

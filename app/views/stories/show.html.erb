@@ -12,17 +12,21 @@
   </p>
   <div class='clear-right'></div>
   <div class='user-interactions'>
-    <% if !current_user.importance_markers.find_by(story_id: @story.id) %>
-      <%= link_to image_tag('thumbs-up.svg'), "/stories/#{@story.id}/mark_important", method: :post %>
-      <%= link_to image_tag('thumbs-down.svg'), "/stories/#{@story.id}/mark_unimportant", method: :post %>
-    <% elsif current_user.importance_markers.find_by(story_id: @story.id).important? %>
-      <%= link_to image_tag('thumbs-down.svg'), "/stories/#{@story.id}/mark_unimportant", method: :post %>
+    <% if user_signed_in? %>
+      <% if !current_user.importance_markers.find_by(story_id: @story.id) %>
+        <%= link_to image_tag('thumbs-up.svg'), "/stories/#{@story.id}/mark_important", method: :post %>
+        <%= link_to image_tag('thumbs-down.svg'), "/stories/#{@story.id}/mark_unimportant", method: :post %>
+      <% elsif current_user.importance_markers.find_by(story_id: @story.id).important? %>
+        <%= link_to image_tag('thumbs-down.svg'), "/stories/#{@story.id}/mark_unimportant", method: :post %>
+      <% else %>
+        <%= link_to image_tag('thumbs-up.svg'), "/stories/#{@story.id}/mark_important", method: :post %>
+      <% end %>
+      <% if current_user == @story.user %>
+        <%= link_to "Edit", edit_story_path(@story) %>
+        <%= link_to "Delete", story_path(@story), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
+      <% end %>
     <% else %>
-      <%= link_to image_tag('thumbs-up.svg'), "/stories/#{@story.id}/mark_important", method: :post %>
-    <% end %>
-    <% if current_user == @story.user %>
-      <%= link_to "Edit", edit_story_path(@story) %>
-      <%= link_to "Delete", story_path(@story), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
+      <%= link_to "Sign in to vote on story importance", new_user_session_path %>
     <% end %>
   </div>
 

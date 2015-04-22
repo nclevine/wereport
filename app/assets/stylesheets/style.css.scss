@@ -113,6 +113,14 @@ header{
   p{
     font-size: 1.2em;
   }
+  .today{
+    width: 100%;
+    margin: 0 0 10px 0;
+    h2{
+      font-size: 1.5em;
+      margin: 0 0 0 30px;
+    }
+  }
   .trending-stories, .most-important, .busy-neighborhoods, .most-viewed{
     width: 350px;
     padding: 20px;
@@ -122,11 +130,11 @@ header{
       width: 100%;
     }
   }
-  .trending-stories, .most-viewed{
+  .trending-stories{
     float: left;
     margin-left: 50px;
   }
-  .busy-neighborhoods, .most-important{
+  .busy-neighborhoods, .most-important, .most-viewed{
     float: right;
     margin-right: 50px;
   }
