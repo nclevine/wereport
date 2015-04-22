@@ -9,7 +9,7 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
     @story.punch(request)
     location= "#{@story.location.name.split.join("+")}+washington+dc"
-    @url= "http://maps.googleapis.com/maps/api/staticmap?center=#{location}&zoom=15&size=500x300&key=#{ENV['my_api_key']}"
+    @url= "maps.googleapis.com/maps/api/staticmap?center=#{location}&zoom=15&size=500x300&markers=color:0x009696|#{location}&key=#{ENV['my_api_key']}"
   end
 
   def new

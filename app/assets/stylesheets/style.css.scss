@@ -303,7 +303,7 @@ header{
   }
 }
 
-.story-form{
+.story-form, .login-form{
   max-width: 550px;
   margin: 0 auto;
   h2{
@@ -345,7 +345,7 @@ header{
     select, option{
       width: 50%;
       padding: 5px;
-      background: url('down-arrow.png') no-repeat white;
+      background: image-url('down-arrow.png') no-repeat white;
       background-position: 95%;
       background-size: 25px 25px;
       border: 1px solid $turquoise;
