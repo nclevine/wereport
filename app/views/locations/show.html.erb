@@ -1,5 +1,13 @@
-<h2><%= @location.name %></h2>
+<div class='location-show'>
+  <h2><%= @location.name %></h2>
 
-<% @location.stories.each do |story| %>
-  <%= link_to story.title, story %>
-<% end %>
+  <div class='location-stories'>
+    <% @location.stories.each do |story| %>
+      <div class='story'>
+        <h3><%= link_to story.title, story %></h3>
+        <p><%= story.preview %></p>
+        <p><%= story.username %>, <%= story.created_at.strftime("%l:%M %P, %m/%d/%y") %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

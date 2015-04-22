@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  get '/home', to: 'categories#home'
-  root 'categories#home'
+  get '/home', to: 'home#home'
+  root 'home#home'
+
+  post '/stories/:story_id/mark_important', to: 'stories#mark_important'
+  post '/stories/:story_id/mark_unimportant', to: 'stories#mark_unimportant'
 end

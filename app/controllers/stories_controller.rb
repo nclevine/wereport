@@ -7,6 +7,9 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
+    @story.punch(request)
+    location= "#{@story.location.name.split.join("+")}+washington+dc"
+    @url= "maps.googleapis.com/maps/api/staticmap?center=#{location}&zoom=15&size=500x300&markers=color:0x009696|#{location}&key=#{ENV['my_api_key']}"
   end
 
   def new
@@ -16,6 +19,7 @@ class StoriesController < ApplicationController
   def create
     @location = Location.find_or_create_by(neighborhood_id: params[:story][:neighborhood_id], name: params[:story][:location])
     params[:story][:location_id] = @location.id
+    params[:story][:title] = params[:story][:title].titleize
     @story = current_user.stories.new(story_params)
     if @story.save
       redirect_to @story 
@@ -32,6 +36,7 @@ class StoriesController < ApplicationController
     @location = Location.find_or_create_by(neighborhood_id: params[:story][:neighborhood_id], name: params[:story][:location])
     params[:story][:location_id] = @location.id
     @story = Story.find(params[:id])
+    params[:story][:title] = params[:story][:title].titleize
     if @story.update(story_params)
       redirect_to @story
     else
@@ -44,6 +49,32 @@ class StoriesController < ApplicationController
     @category = @story.category
     @story.destroy
     redirect_to root_path
+  end
+
+  def mark_important
+    @story = Story.find(params[:story_id])
+    if !current_user.importance_markers.find_by(story_id: @story.id)
+      @importance_marker = ImportanceMarker.create(user_id: current_user.id, story_id: @story.id, important: true)  
+    else
+      @importance_marker = current_user.importance_markers.find_by(story_id: @story.id)
+      @importance_marker.update(important: true)
+    end
+    @story.importance += 1
+    @story.save
+    redirect_to @story
+  end
+
+  def mark_unimportant
+    @story = Story.find(params[:story_id])
+    if !current_user.importance_markers.find_by(story_id: @story.id)
+      @importance_marker = ImportanceMarker.create(user_id: current_user.id, story_id: @story.id, important: false)  
+    else
+      @importance_marker = current_user.importance_markers.find_by(story_id: @story.id)
+      @importance_marker.update(important: false)
+    end
+    @story.importance -= 1
+    @story.save
+    redirect_to @story
   end
 
   private

@@ -6,4 +6,15 @@ class Story < ActiveRecord::Base
   belongs_to :location
   belongs_to :category
   has_many :comments, dependent: :destroy
+  has_many :importance_markers
+
+  acts_as_punchable
+
+  def preview
+    preview = self.body.split[0..5].join(' ') + '...'
+  end
+
+  def username
+    username = self.user.email.split('@').first
+  end
 end

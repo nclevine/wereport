@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :stories
   has_many :comments
+  has_many :importance_markers
 end
