@@ -5,6 +5,7 @@ class Location < ActiveRecord::Base
   has_many :stories
 
   geocoded_by :address
+  after_validation :geocode
   #below is suppose to use dirty tracking
   #after_validation :geocode, :if => :address_change?
 end

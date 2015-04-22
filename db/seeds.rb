@@ -153,3 +153,12 @@ Category.create([
   {name: 'Tech' },
   {name: 'Education' }
 ])
+
+#<Location id: 1, name: "Empire State Building", created_at: "2015-04-22 17:59:52", updated_at: "2015-04-22 17:59:52", neighborhood_id: 11, address: nil, latitude: nil, longitude: nil>, #<Location id: 2, name: "The White House", created_at: "2015-04-22 18:56:41", updated_at: "2015-04-22 18:56:41", neighborhood_id: 12, address: "1600 Pennsylvania Avenue Northwest, Washington, DC...", latitude: nil, longitude: nil>, #<Location id: 3, name: "General Assembly Washington DC", created_at: "2015-04-22 18:58:04", updated_at: "2015-04-22 18:58:04", neighborhood_id: 12, address: "1133 15th Street NW, 8th Floor, Washington, DC 200...", latitude: nil, longitude: nil>
+Location.create(name: "The White House", neighborhood_id: 12, address: "1600 Pennsylvania Avenue Northwest, Washington, DC 20500", latitude: nil, longitude: nil)
+Location.create(
+    name: "General Assembly Washington DC",
+    neighborhood_id: 12,
+    address: "1133 15th Street NW, 8th Floor, Washington, DC 20005",
+    latitude: nil,
+    longitude: nil)
