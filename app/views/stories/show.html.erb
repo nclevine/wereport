@@ -1,13 +1,16 @@
 <div class='story-show'>
-  <img src="<%= @url %>">
-  <%= @url %>
 
+  <%= image_tag @map, class: 'story-map' %>
   <h2><%= @story.title %></h2>
   <div class='info-links'>
     <p>(<%= link_to @story.category.name, @story.category %>)</p>
     <p>(<%= link_to @story.neighborhood.name, @story.neighborhood %>)</p>
   </div>
   <p class="author-line"><%= @story.username %>, <%= @story.created_at.strftime("%l:%M %P, %m/%d/%y") %></p>
+  <p class="story-body">
+    <span class="location"><%= @story.location.name.upcase %>:</span> <%= @story.body %>
+  </p>
+  <div class='clear-right'></div>
   <div class='user-interactions'>
     <% if !current_user.importance_markers.find_by(story_id: @story.id) %>
       <%= link_to image_tag('thumbs-up.svg'), "/stories/#{@story.id}/mark_important", method: :post %>
@@ -22,7 +25,6 @@
       <%= link_to "Delete", story_path(@story), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
     <% end %>
   </div>
-  <p class="story-body"><span class="location"><%= @story.location.name.upcase %>:</span> <%= @story.body %></p>
 
 
   <div class='comments'>
