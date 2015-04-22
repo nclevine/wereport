@@ -4,7 +4,7 @@ $goudy: 'goudy bookletter 1911', serif;
 
 body{
   margin: 0;
-  padding: 0;
+  padding-bottom: 100px;
   font-family: $goudy;
   color: $turquoise;
   a, a:visited{
@@ -236,6 +236,101 @@ header{
       color: black;
       text-decoration: none;
     }
+  }
+}
+
+.story-form{
+  max-width: 550px;
+  margin: 0 auto;
+  h2{
+    font-family: $ropa;
+    font-size: 2.2em;
+  }
+  input, select, textarea{
+    display: block;
+    font-size: 1.5em;
+    margin: 0 0 15px 15px;
+  }
+  label{
+    display: block;
+    font-size: 1.7em;
+    margin-bottom: 5px;
+  }
+  input, textarea{
+    font-family: $goudy;
+  }
+  label, select, input[type=submit]{
+    font-family: $ropa;
+  }
+  input[type=text], textarea{
+    width: 100%;
+  }
+  textarea{
+    height: 200px;
+  }
+  input[type=submit]{
+    padding: 5px;
+    border: 1px solid $turquoise;
+    border-radius: 0;
+    background: white;
+    color: $turquoise;
+    -webkit-appearance: none;
+  }
+  .styled-select{
+    select, option{
+      width: 50%;
+      padding: 5px;
+      background: url('down-arrow.png') no-repeat white;
+      background-position: 95%;
+      background-size: 25px 25px;
+      border: 1px solid $turquoise;
+      border-radius: 0px;
+      font-size: 1.5em;
+      color: $turquoise;
+      -webkit-appearance: none;
+    }
+  }
+}
+
+.comments{
+  max-width: 300px;
+  margin: 0 auto;
+  .comment{
+    font-size: 1.2em;
+    p{
+      margin: 5px 0;
+    }
+  }
+}
+
+.comment-form{
+  width: 100%
+  input, textarea{
+    display: block;
+    margin: 0 0 15px 15px;
+  }
+  textarea{
+    width: 100%;
+    font-family: $goudy;
+    font-size: 1.2em;
+    height: 120px;
+  }
+  label, input[type=submit]{
+    font-family: $ropa;
+  }
+  label{
+    display: block;
+    font-size: 1.7em;
+    margin-bottom: 5px;
+  }
+  input[type=submit]{
+    padding: 5px;
+    border: 1px solid $turquoise;
+    border-radius: 0;
+    background: white;
+    color: $turquoise;
+    font-size: 1.5em;
+    -webkit-appearance: none;
   }
 }
 

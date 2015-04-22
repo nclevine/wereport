@@ -9,14 +9,18 @@
 
 <%= form_for @story do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, placeholder: 'Title' %>
   <%= f.label :body %>
-  <%= f.text_area :body %>
-  <%= f.select :category_id, Category.all.collect{ |c| [c.name, c.id] }, {prompt: 'Select Category'} %>
-  <%= f.select :neighborhood_id, Neighborhood.all.collect { |n| [n.name, n.id] }, {prompt: 'Select Neighborhood'} %>
+  <%= f.text_area :body, placeholder: 'Contribute breaking news' %>
+  <div class='styled-select'>
+    <%= f.select :category_id, Category.all.collect{ |c| [c.name, c.id] }, {prompt: 'Select Category'} %>
+  </div>
   <%= f.label :location %>
+  <div class='styled-select'>
+    <%= f.select :neighborhood_id, Neighborhood.all.collect { |n| [n.name, n.id] }, {prompt: 'Select Neighborhood'} %>
+  </div>
   <% if !@story.location %>
-    <%= f.text_field :location %>
+    <%= f.text_field :location, placeholder: 'Location' %>
   <% else %>
     <%= f.text_field :location, value: @story.location.name %>
   <% end %>

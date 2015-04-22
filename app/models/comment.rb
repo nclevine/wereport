@@ -3,4 +3,8 @@ class Comment < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :story
+
+  def username
+    username = self.user.email.split('@').first
+  end
 end
