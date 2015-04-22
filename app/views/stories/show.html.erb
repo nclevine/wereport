@@ -8,6 +8,24 @@
   <%= link_to "Delete story", story_path(@story), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
 <% end %>
 
+<!-- ######### -->
+
+
+<h3<Nearby Locations</h3>
+<% location = @story.location %>
+<ul>
+<% for location in location.nearbys(10) %>
+     <li><%= link_to location.address, location %>(<%= location.distance.round(2) %>miles)<
+<% end %>
+</ul>
+  <!--
+<% my_url = "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=15" %>
+<% @story.all each do |story| %>
+  <% my_url += "&markers=#{story.location.latitude}%2C#{story.location.longitude}" %>
+  <% end %> <%= image_tag my_url %>
+ -->
+<!-- ######### -->
+
 <div class='comments'>
   <% @story.comments.each do |comment| %>
     <p><%= comment.body %></p>
