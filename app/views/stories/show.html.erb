@@ -6,42 +6,48 @@
     <p>(<%= link_to @story.neighborhood.name, @story.neighborhood %>)</p>
   </div>
   <p class="author-line"><%= @story.username %>, <%= @story.created_at.strftime("%l:%M %P, %m/%d/%y") %></p>
+  <div class='user-interactions'>
+    <% if !current_user.importance_markers.find_by(story_id: @story.id) %>
+      <%= link_to image_tag('thumbs-up.svg'), "/stories/#{@story.id}/mark_important", method: :post %>
+      <%= link_to image_tag('thumbs-down.svg'), "/stories/#{@story.id}/mark_unimportant", method: :post %>
+    <% elsif current_user.importance_markers.find_by(story_id: @story.id).important? %>
+      <%= link_to image_tag('thumbs-down.svg'), "/stories/#{@story.id}/mark_unimportant", method: :post %>
+    <% else %>
+      <%= link_to image_tag('thumbs-up.svg'), "/stories/#{@story.id}/mark_important", method: :post %>
+    <% end %>
+    <% if current_user == @story.user %>
+      <%= link_to "Edit", edit_story_path(@story) %>
+      <%= link_to "Delete", story_path(@story), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
+    <% end %>
+  </div>
   <p class="story-body"><span class="location"><%= @story.location.name.upcase %>:</span> <%= @story.body %></p>
 
-  <% if !current_user.importance_markers.find_by(story_id: @story.id) %>
-    <%= link_to 'Important!', "/stories/#{@story.id}/mark_important", method: :post %>
-    <%= link_to 'Unimportant!', "/stories/#{@story.id}/mark_unimportant", method: :post %>
-  <% elsif current_user.importance_markers.find_by(story_id: @story.id).important? %>
-    <%= link_to 'Unimportant!', "/stories/#{@story.id}/mark_unimportant", method: :post %>
-  <% else %>
-    <%= link_to 'Important!', "/stories/#{@story.id}/mark_important", method: :post %>
-  <% end %>
-
-  <% if current_user == @story.user %>
-    <%= link_to "Edit story", edit_story_path(@story) %>
-    <%= link_to "Delete story", story_path(@story), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
-  <% end %>
 
   <div class='comments'>
-    <% @story.comments.each do |comment| %>
-      <div class='comment'>
-        <p><%= comment.body %></p>
-        <p class='author-line'><%= comment.username %>, <%= comment.created_at.strftime("%l:%M %P, %m/%d/%y") %></p>
-        <% if current_user == comment.user %>
-          <%= link_to "Edit", edit_comment_path(comment) %>
-          <%= link_to "Delete", comment_path(comment), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
-        <% end %>
-      </div>
-    <% end %>
 
     <div class='comment-form'>
       <p><%= flash[:bad_comment] %></p>
       <%= form_tag "/stories/#{@story.id}/comments" do %>
-        <%= label_tag :body, "Comment" %>
+        <%= label_tag :body, "Add Comment" %>
         <%= text_area_tag :body %>
         <%= submit_tag "Add comment" %>
       <% end %>
     </div>
+
+    <h3>Comments</h3>
+    <% @story.comments.each do |comment| %>
+      <div class='comment'>
+        <p><%= comment.body %></p>
+        <p class='comment-author-line'><%= comment.username %>, <%= comment.created_at.strftime("%l:%M %P, %m/%d/%y") %></p>
+        <% if current_user == comment.user %>
+          <div class='edit-delete'>
+            <%= link_to "Edit", edit_comment_path(comment) %>
+            <%= link_to "Delete", comment_path(comment), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
   </div>
 
 </div>

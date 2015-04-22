@@ -181,11 +181,27 @@ header{
       font-family: $ropa;
     }
   }
+  .user-interactions{
+    width: 50px;
+    float: right;
+    margin: 30px 0 0 30px;
+    text-align: center;
+    a{
+      display: block;
+      margin-bottom: 10px;
+      font-family: $ropa;
+      font-size: 1.1em;
+      color: $turquoise;
+      img{
+        height: 45px;
+      }
+    }
+  }
 }
 
 .category-show{
   margin: 0 auto;
-  width: 65%;
+  width: 500px;
   h2{
     display: inline-block;
     width: 80%;
@@ -239,6 +255,54 @@ header{
   }
 }
 
+.neighborhood-show{
+  margin: 0 auto;
+  width: 500px;
+  h2{
+    margin-bottom: 20px;
+    font-family: $ropa;
+    font-size: 2.2em;
+  }
+  h3 {
+    margin: 0 0 10px 0;
+  }
+  h3{
+    font-size: 1.4em;
+    font-family: $ropa;
+  }
+  p{
+    font-size: 1.2em;
+    margin: 0 0 5px 10px;
+  }
+  .return{
+    margin: 0;
+    text-align: right;
+    font-family: $ropa;
+  }
+}
+
+.location-show{
+  margin: 0 auto;
+  width: 500px;
+  h2{
+    display: inline-block;
+    width: 80%;
+    margin-bottom: 5px;
+    font-family: $ropa;
+    font-size: 2.2em;
+  }
+  h3, p{
+    margin: 3px;
+  }
+  h3{
+    font-style: italic;
+    font-size: 1.4em;
+  }
+  p{
+    font-size: 1.2em;
+  }
+}
+
 .story-form{
   max-width: 550px;
   margin: 0 auto;
@@ -264,6 +328,7 @@ header{
   }
   input[type=text], textarea{
     width: 100%;
+    padding: 5px;
   }
   textarea{
     height: 200px;
@@ -295,10 +360,24 @@ header{
 .comments{
   max-width: 300px;
   margin: 0 auto;
+  h3{
+    margin: 15px 0 5px 0;
+    font-size: 1.5em;
+    font-family: $ropa;
+  }
   .comment{
+    margin: 15px 0 0 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $turquoise;
     font-size: 1.2em;
+    &:last-child{
+      border-bottom: none;
+    }
     p{
       margin: 5px 0;
+    }
+    .comment-author-line, .edit-delete{
+      font-size: 0.8em;
     }
   }
 }
@@ -311,16 +390,17 @@ header{
   }
   textarea{
     width: 100%;
+    height: 100px;
+    padding: 5px;
     font-family: $goudy;
     font-size: 1.2em;
-    height: 120px;
   }
   label, input[type=submit]{
     font-family: $ropa;
   }
   label{
     display: block;
-    font-size: 1.7em;
+    font-size: 1.5em;
     margin-bottom: 5px;
   }
   input[type=submit]{
@@ -329,7 +409,7 @@ header{
     border-radius: 0;
     background: white;
     color: $turquoise;
-    font-size: 1.5em;
+    font-size: 1.3em;
     -webkit-appearance: none;
   }
 }
