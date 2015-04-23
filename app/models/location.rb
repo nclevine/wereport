@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  validates :address, :neighborhood_id, presence: true
+  validates :name, :address, :neighborhood_id, presence: true
 
   belongs_to :neighborhood
   has_many :stories

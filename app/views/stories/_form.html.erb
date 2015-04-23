@@ -1,11 +1,10 @@
 <% if @story.errors.any? %>
-  <p>Errors:</p>
-  <ul>
-    <% @story.errors.full_messages.each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
+  <% @story.errors.full_messages.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
 <% end %>
+
+<p><%= flash[:bad_location] %></p>
 
 <%= form_for @story, html: {multipart: true} do |f| %>
   <%= f.label :title %>
@@ -14,6 +13,7 @@
   <%= f.text_area :body, placeholder: 'Contribute breaking news' %>
   <%= f.label :photo %>
   <%= f.file_field :photo %>
+  <%= f.label :category %>
   <div class='styled-select'>
     <%= f.select :category_id, Category.all.collect{ |c| [c.name, c.id] }, {prompt: 'Select Category'} %>
   </div>
@@ -22,7 +22,7 @@
     <%= f.select :neighborhood_id, Neighborhood.all.collect { |n| [n.name, n.id] }, {prompt: 'Select Neighborhood'} %>
   </div>
   <% if !@story.location %>
-    <%= f.text_field :location, placeholder: 'Location' %>
+    <%= f.text_field :location, placeholder: 'Street Address, Intersection, or Establishment' %>
   <% else %>
     <%= f.text_field :location, value: @story.location.name %>
   <% end %>

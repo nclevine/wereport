@@ -6,7 +6,10 @@
     <h2>Trending Stories</h2>
     <% @trending_stories.each do |story| %>
       <div class='story'>
-        <h3><%= link_to story.title, story %></h3>
+        <% if story.photo.path%>
+          <%= image_tag story.photo, class: 'thumbnail' %>
+        <% end %>
+        <h3 class='headline'><%= link_to story.title, story %></h3>
         <div class='info-links'>
           <p>(<%= link_to story.category.name, story.category %>)</p>
           <p>(<%= link_to story.neighborhood.name, story.neighborhood %>)</p>
@@ -41,7 +44,10 @@
     <h2>Important Stories</h2>
     <% @important_stories.each do |story| %>
       <div class='story'>
-        <h3><%= link_to story.title, story %></h3>
+        <% if story.photo.path %>
+          <%= image_tag story.photo, class: 'thumbnail' %>
+        <% end %>
+        <h3 class='headline'><%= link_to story.title, story %></h3>
         <div class='info-links'>
           <p>(<%= link_to story.category.name, story.category %>)</p>
           <p>(<%= link_to story.neighborhood.name, story.neighborhood %>)</p>
@@ -58,7 +64,10 @@
     <h2>Most Viewed</h2>
     <% @most_viewed_stories.each do |story| %>
       <div class='story'>
-        <h3><%= link_to story.title, story %></h3>
+        <% if story.photo.path %>
+          <%= image_tag story.photo, class: 'thumbnail' %>
+        <% end %>
+        <h3 class='headline'><%= link_to story.title, story %></h3>
         <div class='info-links'>
           <p>(<%= link_to story.category.name, story.category %>)</p>
           <p>(<%= link_to story.neighborhood.name, story.neighborhood %>)</p>

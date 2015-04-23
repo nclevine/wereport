@@ -1,7 +1,7 @@
 <div class='story-show'>
   <div class='story-images'>
     <%= image_tag @map, class: 'story-map' %>
-    <% if @story.photo %>
+    <% if @story.photo.path %>
       <div class='clear-right'></div>
       <%= image_tag @story.photo, class: 'story-photo' %>
     <% end %>

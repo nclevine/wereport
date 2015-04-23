@@ -33,9 +33,9 @@ class StoriesController < ApplicationController
   end
 
   def update
+    @story = Story.find(params[:id])
     @location = Location.find_or_create_by(neighborhood_id: params[:story][:neighborhood_id], name: params[:story][:location], address: "#{params[:story][:location].gsub('&', '+')} #{Neighborhood.find(params[:story][:neighborhood_id]).name} Washington DC")
     params[:story][:location_id] = @location.id
-    @story = Story.find(params[:id])
     params[:story][:title] = params[:story][:title].titleize
     if @story.update(story_params)
       redirect_to @story
