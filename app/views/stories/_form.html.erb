@@ -22,7 +22,7 @@
   <% if !@story.location %>
     <%= f.text_field :location, placeholder: 'Location' %>
   <% else %>
-    <%= f.text_field :location, value: @story.location.address %>
+    <%= f.text_field :location, value: @story.location.name %>
   <% end %>
   <%= f.submit %>
 <% end %>

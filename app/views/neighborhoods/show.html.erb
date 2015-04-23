@@ -7,7 +7,12 @@
   <%= image_tag @url %>
 
   <% @stories.each do |story| %>
-    <p><%= link_to story.title, story %></p>
+    <div class='story'>
+      <h3><%= link_to story.title, story %></h3>
+      <p><%= story.preview %></p>
+      <p><%= story.username %>, <%= story.created_at.strftime("%l:%M %P, %m/%d/%y") %></p>
+    </div>
+    <div class='clear-right'></div>
   <% end %>
 
   <p class='return'><%= link_to "All Neighborhoods", neighborhoods_path %></p>
