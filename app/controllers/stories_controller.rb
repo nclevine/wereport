@@ -8,7 +8,7 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
     @story.punch(request)
-    location= "#{@story.location.name.split.join("+")}+washington+dc"
+    location = "#{@story.location.latitude},#{@story.location.longitude}"
     @map = "https://maps.googleapis.com/maps/api/staticmap?center=#{location}&zoom=15&size=200x200&markers=color:0x009696|#{location}&key=#{ENV['my_api_key']}"
   end
 
@@ -17,7 +17,7 @@ class StoriesController < ApplicationController
   end
 
   def create
-    @location = Location.find_or_create_by(neighborhood_id: params[:story][:neighborhood_id], address: params[:story][:location])
+    @location = Location.find_or_create_by(neighborhood_id: params[:story][:neighborhood_id], name: params[:story][:location], address: "#{params[:story][:location].gsub('&', '+')} #{Neighborhood.find(params[:story][:neighborhood_id]).name} Washington DC")
     params[:story][:location_id] = @location.id
     params[:story][:title] = params[:story][:title].titleize
     @story = current_user.stories.new(story_params)
@@ -33,7 +33,7 @@ class StoriesController < ApplicationController
   end
 
   def update
-    @location = Location.find_or_create_by(neighborhood_id: params[:story][:neighborhood_id], address: params[:story][:location])
+    @location = Location.find_or_create_by(neighborhood_id: params[:story][:neighborhood_id], name: params[:story][:location], address: "#{params[:story][:location].gsub('&', '+')} #{Neighborhood.find(params[:story][:neighborhood_id]).name} Washington DC")
     params[:story][:location_id] = @location.id
     @story = Story.find(params[:id])
     params[:story][:title] = params[:story][:title].titleize
