@@ -1,6 +1,11 @@
 <div class='story-show'>
-  <%= image_tag @story.photo %>
-  <%= image_tag @map, class: 'story-map' %>
+  <div class='story-images'>
+    <%= image_tag @map, class: 'story-map' %>
+    <% if @story.photo %>
+      <div class='clear-right'></div>
+      <%= image_tag @story.photo, class: 'story-photo' %>
+    <% end %>
+  </div>
   <h2><%= @story.title %></h2>
   <div class='info-links'>
     <p>(<%= link_to @story.category.name, @story.category %>)</p>
@@ -8,7 +13,8 @@
   </div>
   <p class="author-line"><%= @story.username %>, <%= @story.created_at.strftime("%l:%M %P, %m/%d/%y") %></p>
   <p class="story-body">
-    <span class="location"><%= @story.location.name.upcase %>:</span> <%= @story.body %>
+    <span class="location"><%= @story.location.name.upcase %>:</span>
+    <%= @story.body %>
   </p>
   <div class='clear-right'></div>
   <div class='user-interactions'>

@@ -207,9 +207,17 @@ header{
       height: 45px;
     }
   }
-  img.story-map{
+  .story-images{
     float: right;
     margin-right: 30px;
+  }
+  img.story-photo{
+    max-width: 400px;
+    float: right;
+  }
+  img.story-map{
+    float: right;
+    margin-bottom: 15px;
   }
 }
 
@@ -439,6 +447,11 @@ header{
 
 .view-all{
   text-align: right;
+}
+
+.clear, .clear-left, .clear-right{
+  margin: 0;
+  padding: 0;
 }
 
 .clear{
