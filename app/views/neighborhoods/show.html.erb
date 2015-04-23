@@ -1,12 +1,14 @@
 <div class='neighborhood-show'>
   <h2><%= @neighborhood.name %></h2>
 
-  <div class='locations'>
-    <h3>Posted Locations</h3>
-    <% @neighborhood.locations.each do |location| %>
-      <p><%= link_to location.address, location %></p>
-    <% end %>
-  </div>
+  <% @stories.each do |story| %>
+  <% @url += "|#{story.location.latitude},#{story.location.longitude}" %>
+  <% end %>
+  <%= image_tag @url %>
+
+  <% @stories.each do |story| %>
+    <p><%= link_to story.title, story %></p>
+  <% end %>
 
   <p class='return'><%= link_to "All Neighborhoods", neighborhoods_path %></p>
 </div>
