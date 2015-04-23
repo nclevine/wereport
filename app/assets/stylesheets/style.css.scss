@@ -4,7 +4,7 @@ $goudy: 'goudy bookletter 1911', serif;
 
 body{
   margin: 0;
-  padding: 0 0 100px 0;
+  padding: 0;
   font-family: $goudy;
   color: $turquoise;
   a, a:visited{
@@ -464,6 +464,16 @@ header{
     color: $turquoise;
     font-size: 1.3em;
     -webkit-appearance: none;
+  }
+}
+
+footer{
+  margin-top: 100px;
+  p{
+    margin: 0 10px 10px 0;
+    font-size: 1em;
+    font-family: $ropa;
+    text-align: right;
   }
 }
 

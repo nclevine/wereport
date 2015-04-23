@@ -4,8 +4,6 @@
   <% end %>
 <% end %>
 
-<p><%= flash[:bad_location] %></p>
-
 <%= form_for @story, html: {multipart: true} do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title, placeholder: 'Title' %>
@@ -19,7 +17,7 @@
   </div>
   <%= f.label :location %>
   <div class='styled-select'>
-    <%= f.select :neighborhood_id, Neighborhood.all.collect { |n| [n.name, n.id] }, {prompt: 'Select Neighborhood'} %>
+    <%= f.select :neighborhood_id, Neighborhood.all.collect { |n| [n.name, n.id] }, {prompt: 'Select Neighborhood'}, required: true %>
   </div>
   <% if !@story.location %>
     <%= f.text_field :location, placeholder: 'Street Address, Intersection, or Establishment' %>
