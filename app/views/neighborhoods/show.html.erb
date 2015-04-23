@@ -4,7 +4,7 @@
   <div class='locations'>
     <h3>Posted Locations</h3>
     <% @neighborhood.locations.each do |location| %>
-      <p><%= link_to location.name, location %></p>
+      <p><%= link_to location.address, location %></p>
     <% end %>
   </div>
 

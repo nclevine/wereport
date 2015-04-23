@@ -8,7 +8,7 @@
   </div>
   <p class="author-line"><%= @story.username %>, <%= @story.created_at.strftime("%l:%M %P, %m/%d/%y") %></p>
   <p class="story-body">
-    <span class="location"><%= @story.location.name.upcase %>:</span> <%= @story.body %>
+    <span class="location"><%= @story.location.address.upcase %>:</span> <%= @story.body %>
   </p>
   <div class='clear-right'></div>
   <div class='user-interactions'>

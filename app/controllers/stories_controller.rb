@@ -17,7 +17,7 @@ class StoriesController < ApplicationController
   end
 
   def create
-    @location = Location.find_or_create_by(neighborhood_id: params[:story][:neighborhood_id], name: params[:story][:location])
+    @location = Location.find_or_create_by(neighborhood_id: params[:story][:neighborhood_id], address: params[:story][:location])
     params[:story][:location_id] = @location.id
     params[:story][:title] = params[:story][:title].titleize
     @story = current_user.stories.new(story_params)
@@ -33,7 +33,7 @@ class StoriesController < ApplicationController
   end
 
   def update
-    @location = Location.find_or_create_by(neighborhood_id: params[:story][:neighborhood_id], name: params[:story][:location])
+    @location = Location.find_or_create_by(neighborhood_id: params[:story][:neighborhood_id], address: params[:story][:location])
     params[:story][:location_id] = @location.id
     @story = Story.find(params[:id])
     params[:story][:title] = params[:story][:title].titleize

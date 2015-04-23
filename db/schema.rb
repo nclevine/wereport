@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421195458) do
+ActiveRecord::Schema.define(version: 20150423133242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,10 +45,12 @@ ActiveRecord::Schema.define(version: 20150421195458) do
   add_index "importance_markers", ["user_id"], name: "index_importance_markers_on_user_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
-    t.string   "name",            null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "neighborhood_id"
+    t.string   "address"
+    t.float    "longitude"
+    t.float    "latitude"
   end
 
   add_index "locations", ["neighborhood_id"], name: "index_locations_on_neighborhood_id", using: :btree
