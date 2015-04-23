@@ -17,8 +17,10 @@
         <%= link_to image_tag('thumbs-up.svg'), "/stories/#{@story.id}/mark_important", method: :post %>
         <%= link_to image_tag('thumbs-down.svg'), "/stories/#{@story.id}/mark_unimportant", method: :post %>
       <% elsif current_user.importance_markers.find_by(story_id: @story.id).important? %>
+        <p>You marked this story Important</p>
         <%= link_to image_tag('thumbs-down.svg'), "/stories/#{@story.id}/mark_unimportant", method: :post %>
       <% else %>
+        <p>You marked this story Unimportant</p>
         <%= link_to image_tag('thumbs-up.svg'), "/stories/#{@story.id}/mark_important", method: :post %>
       <% end %>
       <% if current_user == @story.user %>

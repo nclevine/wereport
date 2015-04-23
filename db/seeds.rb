@@ -140,7 +140,7 @@ Neighborhood.create([
 ])
 
 Category.create([
-  {name: 'Public Interest'},
+  {name: 'News'},
   {name: 'Politics'},
   {name: 'Business'},
   {name: 'Crime'},
