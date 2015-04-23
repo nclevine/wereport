@@ -9,7 +9,7 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
     @story.punch(request)
     location = "#{@story.location.latitude},#{@story.location.longitude}"
-    @map = "https://maps.googleapis.com/maps/api/staticmap?center=#{location}&zoom=15&size=200x200&markers=color:0x009696|#{location}&key=#{ENV['my_api_key']}"
+    @map = "https://maps.googleapis.com/maps/api/staticmap?center=#{location}&zoom=15&size=200x200&markers=color:0x009696|#{location}&key=#{ENV['google_maps_key']}"
   end
 
   def new
@@ -79,6 +79,6 @@ class StoriesController < ApplicationController
 
   private
   def story_params
-    params.require(:story).permit(:title, :body, :category_id, :user_id, :neighborhood_id, :location_id)
+    params.require(:story).permit(:title, :body, :category_id, :user_id, :neighborhood_id, :location_id, :photo)
   end
 end

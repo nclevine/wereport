@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423141056) do
+ActiveRecord::Schema.define(version: 20150423170654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20150423141056) do
     t.datetime "updated_at",                  null: false
     t.integer  "neighborhood_id"
     t.integer  "importance",      default: 0
+    t.string   "photo"
   end
 
   add_index "stories", ["category_id"], name: "index_stories_on_category_id", using: :btree

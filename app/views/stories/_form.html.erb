@@ -7,11 +7,13 @@
   </ul>
 <% end %>
 
-<%= form_for @story do |f| %>
+<%= form_for @story, html: {multipart: true} do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title, placeholder: 'Title' %>
   <%= f.label :body %>
   <%= f.text_area :body, placeholder: 'Contribute breaking news' %>
+  <%= f.label :photo %>
+  <%= f.file_field :photo %>
   <div class='styled-select'>
     <%= f.select :category_id, Category.all.collect{ |c| [c.name, c.id] }, {prompt: 'Select Category'} %>
   </div>

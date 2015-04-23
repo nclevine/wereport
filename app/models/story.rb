@@ -17,4 +17,6 @@ class Story < ActiveRecord::Base
   def username
     username = self.user.email.split('@').first
   end
+
+  mount_uploader :photo, PhotoUploader
 end
