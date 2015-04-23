@@ -2,6 +2,10 @@ $turquoise: rgb(0, 150, 150);
 $ropa: 'ropa sans', sans-serif;
 $goudy: 'goudy bookletter 1911', serif;
 
+h1, h2, h3, p, a{
+  font-weight: normal;
+}
+
 body{
   margin: 0;
   padding: 0 0 100px 0;
