@@ -263,6 +263,14 @@ header{
     color: black;
     size: 0.8em;
   }
+  .story{
+    margin: 0 0 10px 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid $turquoise;
+  }
+  .story:last-of-type{
+    border-bottom: none;
+  }
 }
 
 .neighborhood-index{
@@ -332,9 +340,14 @@ header{
 
   }
   .story{
-    margin: 0;
+    margin: 0 0 10px 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid $turquoise;
     width: 300px;
     float: right;
+  }
+  .story:last-of-type{
+    border-bottom: none;
   }
   .author{
     color: black;

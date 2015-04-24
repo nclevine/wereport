@@ -2,7 +2,7 @@
   <h2><%= @neighborhood.name %></h2>
 
   <% @stories.each do |story| %>
-  <% @url += "|#{story.location.latitude},#{story.location.longitude}" %>
+    <% @url += "|#{story.location.latitude},#{story.location.longitude}" %>
   <% end %>
   <%= image_tag @url %>
 
