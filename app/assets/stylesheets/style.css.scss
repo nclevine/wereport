@@ -104,7 +104,7 @@ header{
 }
 
 .home{
-  width: 75%;
+  width: 80%;
   margin: 0 auto;
   h2{
     font-family: $ropa;
@@ -135,7 +135,7 @@ header{
     }
   }
   .trending-stories, .most-important, .busy-neighborhoods, .most-viewed{
-    width: 350px;
+    width: 37%;
     padding: 20px;
     border: 1px solid $turquoise;
     margin-bottom: 20px;
@@ -363,6 +363,10 @@ header{
     display: block;
     font-size: 1.5em;
     margin: 0 0 15px 15px;
+    border: 1px solid $turquoise;
+  }
+  input[type=file]{
+    border: none;
   }
   label{
     display: block;
@@ -445,6 +449,7 @@ header{
     width: 100%;
     height: 100px;
     padding: 5px;
+    border: 1px solid $turquoise;
     font-family: $goudy;
     font-size: 1.2em;
   }
