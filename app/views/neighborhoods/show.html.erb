@@ -10,7 +10,7 @@
     <div class='story'>
       <h3><%= link_to story.title, story %></h3>
       <p><%= story.preview %></p>
-      <p><%= story.username %>, <%= story.created_at.strftime("%l:%M %P, %m/%d/%y") %></p>
+      <p class='author'><%= story.username %>, <%= story.created_at.strftime("%l:%M %P, %m/%d/%y") %></p>
     </div>
     <div class='clear-right'></div>
   <% end %>
