@@ -22,7 +22,7 @@ class StoriesController < ApplicationController
     params[:story][:title] = params[:story][:title].titleize
     @story = current_user.stories.new(story_params)
     if @story.save
-      redirect_to @story 
+      redirect_to @story
     else
       render :new
     end
@@ -51,10 +51,16 @@ class StoriesController < ApplicationController
     redirect_to root_path
   end
 
+  # these two methods are essentially the same. I feel like you could combine
+  # them into one method, eg:
+  # def mark(importance)
+  # end
+  # where importance is either true or false
+  
   def mark_important
     @story = Story.find(params[:story_id])
     if !current_user.importance_markers.find_by(story_id: @story.id)
-      @importance_marker = ImportanceMarker.create(user_id: current_user.id, story_id: @story.id, important: true)  
+      @importance_marker = ImportanceMarker.create(user_id: current_user.id, story_id: @story.id, important: true)
     else
       @importance_marker = current_user.importance_markers.find_by(story_id: @story.id)
       @importance_marker.update(important: true)
@@ -67,7 +73,7 @@ class StoriesController < ApplicationController
   def mark_unimportant
     @story = Story.find(params[:story_id])
     if !current_user.importance_markers.find_by(story_id: @story.id)
-      @importance_marker = ImportanceMarker.create(user_id: current_user.id, story_id: @story.id, important: false)  
+      @importance_marker = ImportanceMarker.create(user_id: current_user.id, story_id: @story.id, important: false)
     else
       @importance_marker = current_user.importance_markers.find_by(story_id: @story.id)
       @importance_marker.update(important: false)

@@ -15,6 +15,11 @@ class Story < ActiveRecord::Base
   end
 
   def username
+    # this is not DRY, I believe you could just define this method as:
+    # return self.user.username
+    # since a user has a username method.
+    # in fact you can delegate the username method to the user object (look up
+    # method delegation in ruby.
     username = self.user.email.split('@').first
   end
 
