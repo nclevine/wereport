@@ -44,6 +44,15 @@
     <h2>Important Stories</h2>
     <% @important_stories.each do |story| %>
       <div class='story'>
+        <!--
+        you have lots of duplicated code for displaying stories in different
+        contexts, this is a classic case where you should use a partial!
+
+        the partial would have to take a local variable (the story), but that's
+        pretty straightforward if you look in the docs, and it's a big gain in
+        terms of readability and reusability
+
+        -->
         <% if story.photo.path %>
           <%= image_tag story.photo, class: 'thumbnail' %>
         <% end %>

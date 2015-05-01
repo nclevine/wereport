@@ -8,6 +8,9 @@ class CommentsController < ApplicationController
 
   def create
     @story = Story.find(params[:story_id])
+    # We generally prefer using objects rather than their IDs when in Ruby
+    # except when passing into through forms. So this could be instead:
+  # @comment = current_user.comments.new(body: params[:body], story: @story)
     @comment = current_user.comments.new(body: params[:body], story_id: @story.id)
     if !@comment.save
       flash[:bad_comment] = "You didn't write anything!"
@@ -29,6 +32,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    # what, no authorization?!?! ;)
     @comment = Comment.find(params[:id])
     @story = @comment.story
     @comment.destroy
