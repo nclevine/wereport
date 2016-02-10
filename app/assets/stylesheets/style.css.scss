@@ -89,7 +89,10 @@ header{
 }
 
 .categories-nav{
+  width: max-content;
   width: intrinsic;
+  width: -moz-max-content;
+  width: -webkit-max-content;
   margin: 0 auto;
   h2{
     display: inline-block;
